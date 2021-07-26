@@ -1,0 +1,25 @@
+﻿<Window x:Class="KafejkaInternetowa.Views.LicenceInfoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KafejkaInternetowa.Views"
+        xmlns:vms="clr-namespace:KafejkaInternetowa.ViewModels"
+        mc:Ignorable="d"
+        Title="LicenceInfoView" Height="200" Width="300">
+
+    <Window.DataContext>
+        <vms:LicenceInfoViewModel />
+    </Window.DataContext>
+    
+    <Grid>
+        <Label Content="Numer seryjny" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="125,10,0,0" TextWrapping="Wrap" Text="{Binding Number, Mode=OneWay}" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+        <Label Content="Ilość klientów" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="125,44,0,0" TextWrapping="Wrap" Text="{Binding ClientCount, Mode=OneWay}" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+        <Label Content="Termin wazności" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="125,72,0,0" TextWrapping="Wrap" Text="{Binding ValidTo, Mode=OneWay}" VerticalAlignment="Top" Width="120" IsReadOnly="True" />
+        <Button Content="Wczytaj" HorizontalAlignment="Left" Margin="25,125,0,0" VerticalAlignment="Top" Width="100" Command="{Binding LoadLicenceCommand}" />
+
+    </Grid>
+</Window>

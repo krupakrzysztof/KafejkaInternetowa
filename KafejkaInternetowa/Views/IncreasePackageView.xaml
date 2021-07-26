@@ -1,0 +1,32 @@
+﻿<Window x:Class="KafejkaInternetowa.Views.IncreasePackageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KafejkaInternetowa.Views"
+        xmlns:vms="clr-namespace:KafejkaInternetowa.ViewModels"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        mc:Ignorable="d"
+        Title="" Height="115" Width="250"
+        Name="increasePackageView"
+        WindowStartupLocation="CenterOwner">
+
+    <Window.DataContext>
+        <vms:IncreasePackageViewModel />
+    </Window.DataContext>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Return" Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=increasePackageView}" />
+    </Window.InputBindings>
+    
+    <Grid>
+        <Label Content="Ilość pakietu" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Right" Margin="0,12,10,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding PackageSizes}" SelectedItem="{Binding SelectedPackageSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True">
+            <dxmvvm:Interaction.Behaviors>
+                <dxmvvm:FocusBehavior />
+            </dxmvvm:Interaction.Behaviors>
+        </ComboBox>
+        <Button Content="Zwiększ" HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Top" Width="100" Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=increasePackageView}" Focusable="False" />
+
+    </Grid>
+</Window>
